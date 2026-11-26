@@ -2,38 +2,62 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1d2b64">
 <title>نتيجة اختبار اللغة العربية النصفي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header class="top">
+  <div class="top-in">
+    <h1>نتيجة اختبار اللغة العربية</h1>
+    <p>الاختبار النصفي · جميع الشعب</p>
+  </div>
+</header>
+
 <main>
-  <h1>نتيجة اختبار اللغة العربية النصفي</h1>
-  <p class="sub">اكتب اسمك ثلاثي أو رباعي كما في حسابك المدرسي، واختر شعبتك.</p>
+  <form id="form" class="panel" autocomplete="off" novalidate>
+    <div class="field">
+      <label for="name">اسمك</label>
+      <input id="name" type="text" placeholder="اكتب اسمك ثلاثي أو رباعي" enterkeyhint="search">
+      <small>اكتب الاسم كما في حسابك المدرسي.</small>
+    </div>
 
-  <form id="form" autocomplete="off" novalidate>
-    <label for="name">الاسم</label>
-    <input id="name" type="text" inputmode="text" placeholder="مثال: أحمد محمد علي السيد" enterkeyhint="search">
-
-    <span class="label" id="sec-label">الشعبة</span>
-    <div class="chips" role="radiogroup" aria-labelledby="sec-label">
-      <button type="button" class="chip" role="radio" aria-checked="false" data-v="a">أ</button>
-      <button type="button" class="chip" role="radio" aria-checked="false" data-v="b">ب</button>
-      <button type="button" class="chip" role="radio" aria-checked="false" data-v="c">ج</button>
-      <button type="button" class="chip" role="radio" aria-checked="false" data-v="d">د</button>
-      <button type="button" class="chip" role="radio" aria-checked="false" data-v="e">هـ</button>
-      <button type="button" class="chip" role="radio" aria-checked="false" data-v="f">و</button>
+    <div class="field">
+      <span class="label" id="sec-label">شعبتك</span>
+      <div class="chips" role="radiogroup" aria-labelledby="sec-label">
+        <button type="button" class="chip" role="radio" aria-checked="false" data-v="a">أ</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-v="b">ب</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-v="c">ج</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-v="d">د</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-v="e">هـ</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-v="f">و</button>
+      </div>
     </div>
 
     <button type="submit" class="go">اعرض النتيجة</button>
+    <p id="msg" class="msg" role="alert" hidden></p>
   </form>
 
-  <p id="msg" class="msg" role="alert" hidden></p>
-
-  <section id="card" class="card" hidden aria-live="polite">
-    <p id="r-name" class="r-name"></p>
-    <p id="r-sec" class="r-sec"></p>
-    <p class="r-score"><span id="r-score"></span><span id="r-max" class="r-max"></span></p>
+  <section id="card" class="panel result" hidden aria-live="polite">
+    <div class="ring" id="ring" style="--p:0">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <circle class="track" cx="60" cy="60" r="52"/>
+        <circle class="bar" cx="60" cy="60" r="52" pathLength="100"/>
+      </svg>
+      <div class="ring-txt">
+        <strong id="r-score"></strong>
+        <span id="r-max"></span>
+      </div>
+    </div>
+    <div class="who">
+      <p id="r-name" class="r-name"></p>
+      <p id="r-sec" class="r-sec"></p>
+      <p id="r-pct" class="r-pct"></p>
+    </div>
   </section>
 </main>
 <script src="data.js"></script>
