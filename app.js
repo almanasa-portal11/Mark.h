@@ -108,6 +108,12 @@
     document.getElementById('r-sec').textContent = 'الشعبة ' + LABELS[sectionVal];
     document.getElementById('r-score').textContent = r.score;
     document.getElementById('r-max').textContent = 'من ' + MAX;
+    var pct = Math.round(r.score / MAX * 100);
+    document.getElementById('r-pct').textContent = 'النسبة ' + pct + '%';
+    var ring = document.getElementById('ring');
+    ring.style.setProperty('--p', 0);
     card.hidden = false;
+    setTimeout(function () { ring.style.setProperty('--p', r.score / MAX * 100); }, 60);
+    if (card.scrollIntoView) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   });
 })(typeof window !== 'undefined' ? window : globalThis);
