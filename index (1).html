@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>نتيجة اختبار اللغة العربية النصفي</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>نتيجة اختبار اللغة العربية النصفي</h1>
+  <p class="sub">اكتب اسمك ثلاثي أو رباعي كما في حسابك المدرسي، واختر شعبتك.</p>
+
+  <form id="form" autocomplete="off" novalidate>
+    <label for="name">الاسم</label>
+    <input id="name" type="text" inputmode="text" placeholder="مثال: أحمد محمد علي السيد" enterkeyhint="search">
+
+    <span class="label" id="sec-label">الشعبة</span>
+    <div class="chips" role="radiogroup" aria-labelledby="sec-label">
+      <button type="button" class="chip" role="radio" aria-checked="false" data-v="a">أ</button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-v="b">ب</button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-v="c">ج</button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-v="d">د</button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-v="e">هـ</button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-v="f">و</button>
+    </div>
+
+    <button type="submit" class="go">اعرض النتيجة</button>
+  </form>
+
+  <p id="msg" class="msg" role="alert" hidden></p>
+
+  <section id="card" class="card" hidden aria-live="polite">
+    <p id="r-name" class="r-name"></p>
+    <p id="r-sec" class="r-sec"></p>
+    <p class="r-score"><span id="r-score"></span><span id="r-max" class="r-max"></span></p>
+  </section>
+</main>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
